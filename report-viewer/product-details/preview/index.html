@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" style="height: 100%; width: 100%;">
+
+<head>
+    <title>Product Details | Preview | JavaScript Report</title>
+    <meta charset="utf-8">
+    <meta name="description"
+        content="The JavaScript bold report viewer allows the end-users to visualize the Product Details report in browsers.">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <script type="text/javascript" src="../../../scripts/common/ej2-base.min.js"></script>
+    <script type="text/javascript" src="../../../scripts/common/ej2-data.min.js"></script>
+    <script type="text/javascript" src="../../../scripts/common/ej2-pdf-export.min.js"></script>
+    <script type="text/javascript" src="../../../scripts/common/ej2-svg-base.min.js"></script>
+    <script type="text/javascript" src="../../../scripts/data-visualization/ej2-circulargauge.min.js"></script>
+    <script type="text/javascript" src="../../../scripts/data-visualization/ej2-lineargauge.min.js"></script>
+    <script type="text/javascript" src="../../../scripts/data-visualization/ej2-maps.min.js"></script>
+    <script>
+        function validateBrowser() {
+            var uaValidate = navigator.userAgent.match(/(MSIE |Trident.*rv[ :])([0-9]+)/);
+            if (uaValidate != null)
+                return uaValidate[2];
+            return null;
+        }
+        var ieVer = validateBrowser();
+        if (ieVer != null && ieVer < 11) {
+            if (!location.origin) {
+                location.origin = window.location.protocol + "//" + window.location.hostname + (window.location.port ? ':' + window.location.port : '');
+                location.href = location.origin + '/error.html';
+            }
+        }
+    </script>
+    <link rel="shortcut icon" type="image/x-icon" href="../../../favicon.ico">
+    <link href="../../../common/index.css" rel="stylesheet" />
+</head>
+
+<body>
+    <div hidden id="reports-analytics" data-queue="Bold Reports - Demos - JavaScript"></div>
+    <style>
+        /* Report Viewer */
+        .e-reportviewer .e-reportviewer-toolbarcontainer .e-reportviewer-toolbarul.e-show {
+            border-style: none;
+            float: right;
+        }
+
+        .e-reportviewer-toolbarcontainer.e-toolbar {
+            padding-right: 0px;
+        }
+
+        .e-reportviewer-icon.ej-webicon {
+            font-family: 'ej-webfont';
+        }
+
+        #description {
+            display: none;
+        }
+    </style>
+    <div class="splash">
+        <div class="message">JavaScript Reports</div>
+        <div class="loader">
+            <div class="bounce1"></div>
+            <div class="bounce2"></div>
+            <div class="bounce3"></div>
+        </div>
+    </div>
+    <div class="ej-body e-hidden">
+        <div class="ej-preview-header">
+            <div class="ej-preview-left-side">
+                <a id="home_page" href="/" target="_blank">
+                    <div class="ej-preview-platform-name">Bold Reports for JavaScript</div>
+                </a>
+            </div>
+            <div class="ej-preview-right-side">
+                <a href="https://help.boldreports.com" title="Documentation" target="_blank"><span
+                        class="ej-preview-header-icons preview-icon-documentation"></span></a>
+                <a href="https://www.boldreports.com" target="_blank" title="Product Details"><span
+                        class="ej-preview-header-icons preview-icon-product"></span></a>
+                <a href="https://www.boldreports.com/pricing/on-premise/" target="_blank" title="Download Now"><span
+                        class="ej-preview-header-icons preview-icon-download"></span></a>
+                <div class="ej-preview-divider"></div>
+                <a class="ej-preview-button" href="https://on-premise-demo.boldreports.com" title="Report Server"
+                    target="_blank">Explore Report Server</a>
+            </div>
+        </div>
+        <div class="ej-preview-content">
+            <div id="container"></div>
+<div id="description">
+    <p>
+        The Product Details report lists the details defined for each product in database using the RDL table report
+        item.
+    </p>
+    <ul>
+        <li>Custom barcode report item is placed in a table cell to display the <code>ProductId</code>.</li>
+        <li>The total price value of each product is calculated based on the <code>OrderQty</code> and
+            <code>UnitPrice</code> data fields using <a
+                href="https://help.boldreports.com/on-premise/report-designer/compose-report/properties-panel/#set-expression"
+                target="_blank">expression</a>.</li>
+        <li>The price values in the product details are formatted in the <b>Currency </b> <a
+                href="https://help.boldreports.com/on-premise/report-designer/compose-report/format-data/"
+                target="_blank">format</a> to improve the readability of data.</li>
+    </ul>
+    <p>
+        More information about the Tablix data region can be found in this <a
+            href="https://help.boldreports.com/on-premise/report-designer/report-items/tablix/"
+            target="_blank">documentation</a> section.
+    </p>
+</div>
+        </div>
+    </div>
+    <script src="../../../common/reports.js"></script>
+    <script src="./index.js"></script>
+</body>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        document.querySelector(".splash").classList.add('e-hidden');
+        document.querySelector('.ej-body.e-hidden').classList.remove('e-hidden');
+    });
+</script>
+
+</html>

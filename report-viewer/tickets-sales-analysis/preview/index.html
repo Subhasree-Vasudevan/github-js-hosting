@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" style="height: 100%; width: 100%;">
+
+<head>
+    <title>Tickets Sales Analysis | Preview | JavaScript Report</title>
+    <meta charset="utf-8">
+    <meta name="description"
+        content="The JavaScript bold report viewer allows the end-users to visualize the Tickets Sales Analysis report in browsers.">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <script type="text/javascript" src="../../../scripts/common/ej2-base.min.js"></script>
+    <script type="text/javascript" src="../../../scripts/common/ej2-data.min.js"></script>
+    <script type="text/javascript" src="../../../scripts/common/ej2-pdf-export.min.js"></script>
+    <script type="text/javascript" src="../../../scripts/common/ej2-svg-base.min.js"></script>
+    <script type="text/javascript" src="../../../scripts/data-visualization/ej2-circulargauge.min.js"></script>
+    <script type="text/javascript" src="../../../scripts/data-visualization/ej2-lineargauge.min.js"></script>
+    <script type="text/javascript" src="../../../scripts/data-visualization/ej2-maps.min.js"></script>
+    <script>
+        function validateBrowser() {
+            var uaValidate = navigator.userAgent.match(/(MSIE |Trident.*rv[ :])([0-9]+)/);
+            if (uaValidate != null)
+                return uaValidate[2];
+            return null;
+        }
+        var ieVer = validateBrowser();
+        if (ieVer != null && ieVer < 11) {
+            if (!location.origin) {
+                location.origin = window.location.protocol + "//" + window.location.hostname + (window.location.port ? ':' + window.location.port : '');
+                location.href = location.origin + '/error.html';
+            }
+        }
+    </script>
+    <link rel="shortcut icon" type="image/x-icon" href="../../../favicon.ico">
+    <link href="../../../common/index.css" rel="stylesheet" />
+</head>
+
+<body>
+    <div hidden id="reports-analytics" data-queue="Bold Reports - Demos - JavaScript"></div>
+    <style>
+        /* Report Viewer */
+        .e-reportviewer .e-reportviewer-toolbarcontainer .e-reportviewer-toolbarul.e-show {
+            border-style: none;
+            float: right;
+        }
+
+        .e-reportviewer-toolbarcontainer.e-toolbar {
+            padding-right: 0px;
+        }
+
+        .e-reportviewer-icon.ej-webicon {
+            font-family: 'ej-webfont';
+        }
+
+        #description {
+            display: none;
+        }
+    </style>
+    <div class="splash">
+        <div class="message">JavaScript Reports</div>
+        <div class="loader">
+            <div class="bounce1"></div>
+            <div class="bounce2"></div>
+            <div class="bounce3"></div>
+        </div>
+    </div>
+    <div class="ej-body e-hidden">
+        <div class="ej-preview-header">
+            <div class="ej-preview-left-side">
+                <a id="home_page" href="/" target="_blank">
+                    <div class="ej-preview-platform-name">Bold Reports for JavaScript</div>
+                </a>
+            </div>
+            <div class="ej-preview-right-side">
+                <a href="https://help.boldreports.com" title="Documentation" target="_blank"><span
+                        class="ej-preview-header-icons preview-icon-documentation"></span></a>
+                <a href="https://www.boldreports.com" target="_blank" title="Product Details"><span
+                        class="ej-preview-header-icons preview-icon-product"></span></a>
+                <a href="https://www.boldreports.com/pricing/on-premise/" target="_blank" title="Download Now"><span
+                        class="ej-preview-header-icons preview-icon-download"></span></a>
+                <div class="ej-preview-divider"></div>
+                <a class="ej-preview-button" href="https://on-premise-demo.boldreports.com" title="Report Server"
+                    target="_blank">Explore Report Server</a>
+            </div>
+        </div>
+        <div class="ej-preview-content">
+            <div id="container"></div>
+<div id="description">
+    <p>
+        Tickets Sales Analysis report shows the sales analysis of movie tickets using RDL line, bar, and doughnut chart
+        data regions and a table report item in Bold Report Viewer.
+    </p>
+    <ul>
+        <li>Alternate row formatting is achieved using the <b>Conditional IIF Statement</b> to alternate the background
+            color for a table data region,
+            which improves the readability of data.</li>
+        <li>The <code>TopN</code> filter is applied to bar chart to display the
+            <code>Top 5 Shows based on Tickets Sold</code>. More information on filtering data with chart data
+            region can be found in this <a
+                href="https://help.boldreports.com/on-premise/report-designer/report-items/chart/add-filters-to-chart-data-region/"
+                target="_blank">documentation</a> section.</li>
+    </ul>
+    <p>
+        More information about chart data region can be found in this <a
+            href="https://help.boldreports.com/on-premise/report-designer/report-items/chart/"
+            target="_blank">documentation</a> section.
+    </p>
+</div>
+        </div>
+    </div>
+    <script src="../../../common/reports.js"></script>
+    <script src="./index.js"></script>
+</body>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        document.querySelector(".splash").classList.add('e-hidden');
+        document.querySelector('.ej-body.e-hidden').classList.remove('e-hidden');
+    });
+</script>
+
+</html>
